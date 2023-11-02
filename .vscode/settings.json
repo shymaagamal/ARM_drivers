@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "MLTable": "yaml",
-        "bit_math.h": "c"
+        "bit_math.h": "c",
+        "rcc_interface.h": "c"
     }
 }

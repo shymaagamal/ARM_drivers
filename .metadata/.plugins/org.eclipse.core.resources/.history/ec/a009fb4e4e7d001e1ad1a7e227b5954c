@@ -1,0 +1,40 @@
+/*********************************************************************************************************************************************
+ * Author       :      Shaimaa G.Salem
+ * Date         :      5 Nov 2023
+ * Version      :      v01
+*********************************************************************************************************************************************/
+
+
+#include "RCC_interface.h"
+#include "GPIO_interface.h"
+#include "GPIO_private.h"
+#include "STK_interface.h"
+#define PORTA_CLK_PIN	2
+void LED();
+u8 flag=0;
+void main(void)
+{
+
+	RCC_voidInitSysClock();
+	RCC_voidEnableClock(RCC_APB2,PORTA_CLK_PIN);
+
+	GPIO_voidSetPinDirection(PORTA_ID, 0, OUTPUT_SPEED2HZ_PUSH_PULL);
+
+	GPIO_voidSetPinValue(PORTA_ID, 0, LOGIC_LOW);
+
+	STK_voidInit();
+	STK_voidSetIntervalSingle(10000,LED);
+	//STK_voidSetIntervalPeriodic(10000, LED);
+	while(1)
+	{
+
+
+
+	}
+}
+
+void LED()
+{
+	GPIO_voidSetPinValue(PORTA_ID, 0, LOGIC_HIGH);
+
+}

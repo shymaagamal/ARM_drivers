@@ -1,0 +1,94 @@
+#include "STD_Types.h"
+#include "BIT_Math.h"
+
+#include "SysTik_config.h"
+#include "SysTik_interface.h"
+#include "SysTik_registers.h"
+
+void (*SysTik_PTR)(void)=NULL;
+u8 STK_Asynchronous_SINGLE=0;
+void SysTik_init(u8 Copy_u8AHB_CLOCK)
+{
+	if(Copy_u8AHB_CLOCK==AHB_NO_PRESCALE)
+	{
+		SET_BIT(STK_CTRL,STK_CTRL_CLK_SOURCE);
+	}
+	else if (Copy_u8AHB_CLOCK==AHB_PRESCALE_8)
+	{
+		CLR_BIT(STK_CTRL,STK_CTRL_CLK_SOURCE);
+	}
+}
+
+//void SysTik_Synchronous(u32 Copy_u32StartValue)
+//{
+//	STK_LOAD=Copy_u32StartValue;
+//	SET_BIT(STK_CTRL,STK_CTRL_ENABLE);
+//	while (STK_VAL!=0);
+//	STK_VAL=0;
+//	STK_LOAD=0;
+//	CLR_BIT(STK_CTRL,STK_CTRL_ENABLE);
+//}
+
+void SysTik_Asynchronous_Single(u32 Copy_u32StartValue,void(*Callbackfunction)(void))
+{
+	STK_LOAD=Copy_u32StartValue;
+	SysTik_PTR=Callbackfunction;
+	SET_BIT(STK_CTRL,STK_CTRL_TICK_INT);
+	SET_BIT(STK_CTRL,STK_CTRL_ENABLE);
+	STK_Asynchronous_SINGLE=1;
+}
+void SysTik_Synchronous(u32 Copy_u32StartValue)
+{
+	STK_LOAD=Copy_u32StartValue;
+	SET_BIT(STK_CTRL,STK_CTRL_ENABLE);
+	while ((GET_BIT(STK_CTRL,STK_CTRL_COUNT_FLAG))==0);
+	STK_VAL=0;
+	STK_LOAD=0;
+	CLR_BIT(STK_CTRL,STK_CTRL_ENABLE);
+}
+void SysTik_Asynchronous_Periodic(u32 Copy_u32StartValue,void(*Callbackfunction)(void))
+{
+	STK_LOAD=Copy_u32StartValue;
+	SysTik_PTR=Callbackfunction;
+	SET_BIT(STK_CTRL,STK_CTRL_TICK_INT);
+	SET_BIT(STK_CTRL,STK_CTRL_ENABLE);
+}
+
+void SysTik_StopTimer()
+{
+	STK_VAL=0;
+	STK_LOAD=0;
+	CLR_BIT(STK_CTRL,STK_CTRL_ENABLE);
+}
+
+u32 SysTik_GetElapsedTime()
+{
+	return (STK_LOAD-STK_VAL);
+}
+
+u32 SysTik_GetRemainingTime()
+{
+	return STK_VAL;
+}
+
+
+
+
+
+
+void SysTick_Handler(void)
+{
+	if(STK_Asynchronous_SINGLE==1)
+	{
+		STK_VAL=0;
+		STK_LOAD=0;
+		CLR_BIT(STK_CTRL,STK_CTRL_ENABLE);
+	}
+	if(SysTik_PTR!=NULL)
+	{
+		SysTik_PTR();
+	}
+}
+
+
+

@@ -1,0 +1,48 @@
+/*********************************************************************************************************************************************
+ * Author       :      Shaimaa G.Salem
+ * Date         :      7 Nov 2023
+ * Version      :      v01
+*********************************************************************************************************************************************/
+
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "STK_private.h"
+#include "STK_config.h"
+#include "STK_interface.h"
+
+void STK_voidInit()
+{
+	CTRL_REG->ENABLE=1;
+	CTRL_REG->CLKSOURCE=CLK_SRC_SELECTION;
+
+}
+void STK_voidSetBusyWait(u32 Copy_u32NumOfTicks)
+{
+	LOAD_REG=Copy_u32NumOfTicks;
+	while(CTRL_REG->COUNTFLAG !=1);
+}
+void STK_voidSetIntervalSingle(u32 Copy_u32NumOfTicks, void(*Copy_pf)(void))
+{
+	LOAD_REG=Copy_u32NumOfTicks;
+	Copy_pf();
+
+}
+void STK_voidSetIntervalPeriodic(u32 Copy_u32NumOfTicks, void(*Copy_pf)(void))
+{
+
+}
+void STK_voidStopTimer()
+{
+CTRL_REG->ENABLE=0;
+LOAD_REG=0;
+
+}
+u32 STK_u32GetElabsedTime(u32 * Copy_pu32ElapsedTime)
+{
+
+}
+u32 STK_u32GetRemainingTime(u32 * Copy_pu32RemainingTime)
+{
+
+}

@@ -1,0 +1,42 @@
+/*********************************************************************************************************************************************
+ * Author       :      Shaimaa G.Salem
+ * Date         :      5 Nov 2023
+ * Version      :      v01
+*********************************************************************************************************************************************/
+
+
+
+#ifndef INC_GPIO_PRIVATE_H_
+#define INC_GPIO_PRIVATE_H_
+
+
+#include "STD_TYPES.h"
+
+//typedef struct {
+//	u32 CRL;
+//	u32 CRH;
+//	u32 IDR;
+//	u32 ODR;
+//	u32 BSRR;
+//	u32 BRR;
+//	u32 LCKR;
+//}GPIOx_t;
+//
+//
+//#define  GPIOA    *((volatile GPIOx_t*) 0x40010800)
+//
+
+#define GPIOA_BASE_ADDRESS	0x40010800
+#define GPIOB_BASE_ADDRESS	0x40010C00
+#define GPIOC_BASE_ADDRESS	0x40011000
+
+/*************************************************************************************************
+ *Registers Addresses For Port
+ **************************************************************************************************/
+#define GPIOA_CRL		*((volatile u32*) GPIOA_BASE_ADDRESS)
+#define GPIOA_CRH		*((volatile u32*) GPIOA_BASE_ADDRESS+0x04)
+#define GPIOA_IDR		*((volatile u32*) GPIOA_BASE_ADDRESS+0x08)
+#define GPIOA_ODR		*((volatile u32*) GPIOA_BASE_ADDRESS+0x0c)
+
+
+#endif /* INC_GPIO_PRIVATE_H_ */

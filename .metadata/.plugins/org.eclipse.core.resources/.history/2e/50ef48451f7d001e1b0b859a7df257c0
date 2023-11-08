@@ -1,0 +1,19 @@
+/*
+ * STK_interface.h
+ *
+ *  Created on: Nov 7, 2023
+ *      Author: Shaimaa Gamal
+ */
+
+#ifndef INC_STK_INTERFACE_H_
+#define INC_STK_INTERFACE_H_
+
+
+void STK_voidInit();
+void STK_voidSetBusyWait();
+void STK_voidSetIntervalSingle();
+void STK_voidSetIntervalPeriodic();
+void STK_voidStopTimer();
+void STK_GetElabsedTime();
+
+#endif /* INC_STK_INTERFACE_H_ */

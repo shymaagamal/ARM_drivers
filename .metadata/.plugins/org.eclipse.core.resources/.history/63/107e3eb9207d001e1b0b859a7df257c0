@@ -1,0 +1,23 @@
+/*********************************************************************************************************************************************
+ * Author       :      Shaimaa G.Salem
+ * Date         :      7 Nov 2023
+ * Version      :      v01
+*********************************************************************************************************************************************/
+
+
+#ifndef INC_STK_PRIVATE_H_
+#define INC_STK_PRIVATE_H_
+
+
+typedef
+
+#define STK_BASE_ADDRESS 		0xE000E010
+
+#define STK_CTRL		*((volatile u32*) (STK_BASE_ADDRESS))
+#define STK_LOAD		*((volatile u32*) (STK_BASE_ADDRESS+0x04))
+#define STK_VAL			*((volatile u32*) (STK_BASE_ADDRESS+0x08))
+#define STK_CALIB		*((volatile u32*) (STK_BASE_ADDRESS+0x0C))
+
+
+
+#endif /* INC_STK_PRIVATE_H_ */

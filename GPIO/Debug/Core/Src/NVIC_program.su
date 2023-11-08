@@ -1,0 +1,6 @@
+../Core/Src/NVIC_program.c:16:15:NVIC_ErrorStatusEnableInterrupt	24	static
+../Core/Src/NVIC_program.c:34:15:NVIC_ErrorStatusDisableInterrupt	24	static
+../Core/Src/NVIC_program.c:52:15:NVIC_ErrorStatusSetPendingFlag	24	static
+../Core/Src/NVIC_program.c:70:15:NVIC_ErrorStatusClearPendingFlag	24	static
+../Core/Src/NVIC_program.c:89:4:NVIC_u8GetActiveFlag	24	static
+../Core/Src/NVIC_program.c:104:6:NVIC_voidSetPriority	24	static

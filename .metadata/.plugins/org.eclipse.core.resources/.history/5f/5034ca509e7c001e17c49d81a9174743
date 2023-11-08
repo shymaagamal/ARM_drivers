@@ -1,0 +1,32 @@
+/*********************************************************************************************************************************************
+ * Author       :      Shaimaa G.Salem
+ * Date         :      6 Nov 2023
+ * Version      :      v01
+*********************************************************************************************************************************************/
+
+
+#ifndef INC_NVIC_PRIVATE_H_
+#define INC_NVIC_PRIVATE_H_
+
+
+#define NVIC_BASE_ADDRESS		0xE000E100
+
+
+#define NVIC_ISER0				*((volatile u32*) (NVIC_BASE_ADDRESS+0x000))/*Enable External Interrupt from 0 -> 31*/
+#define NVIC_ISER1				*((volatile u32*) (NVIC_BASE_ADDRESS+0x004))/*Enable External Interrupt from 32 -> 63*/
+
+#define NVIC_ICER0				*((volatile u32*) (NVIC_BASE_ADDRESS+0x080))/*Disable External Interrupt from 0 -> 31*/
+#define NVIC_ICER1				*((volatile u32*) (NVIC_BASE_ADDRESS+0x084))/*Disable External Interrupt from 32 -> 63*/
+
+#define NVIC_ISPR0  			*((volatile u32*) (NVIC_BASE_ADDRESS+0x100))/*Set Pending Flag from 0 -> 31*/
+#define NVIC_ISPR1				*((volatile u32*) (NVIC_BASE_ADDRESS+0x104))/*Set Pending Flag from 32 -> 63*/
+
+#define NVIC_ICPR0  			*((volatile u32*) (NVIC_BASE_ADDRESS+0x180))/*Clear Pending Flag from 0 -> 31*/
+#define NVIC_ICPR1				*((volatile u32*) (NVIC_BASE_ADDRESS+0x184))/*Clear Pending Flag from 32 -> 63*/
+
+#define NVIC_IABR0  			*((volatile u32*) (NVIC_BASE_ADDRESS+0x200))/*Return Active Flag from 0 -> 31*/
+#define NVIC_IABR1				*((volatile u32*) (NVIC_BASE_ADDRESS+0x204))/*Return Pending Flag from 32 -> 63*/
+
+
+
+#endif /* INC_NVIC_PRIVATE_H_ */

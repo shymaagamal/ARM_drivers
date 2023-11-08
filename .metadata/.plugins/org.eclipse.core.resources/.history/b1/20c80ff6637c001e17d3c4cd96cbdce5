@@ -1,0 +1,19 @@
+/*********************************************************************************************************************************************
+ * Author       :      Shaimaa G.Salem
+ * Date         :      6 Nov 2023
+ * Version      :      v01
+*********************************************************************************************************************************************/
+
+
+#ifndef INC_NVIC_INTERFACE_H_
+#define INC_NVIC_INTERFACE_H_
+
+typedef enum
+{
+	Error=0,
+	NoError=1,
+
+}Error_Status;
+Error_Status  NVIC_Error_StatusEnableInterrupt(u8 copy_u8IntNumber);
+
+#endif /* INC_NVIC_INTERFACE_H_ */

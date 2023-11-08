@@ -1,0 +1,3 @@
+../Core/Src/GPIO_program.c:18:6:GPIO_voidSetPinDirection	24	static
+../Core/Src/GPIO_program.c:53:6:GPIO_voidSetPinValue	24	static
+../Core/Src/GPIO_program.c:93:4:GPIO_u8getPinValue	24	static

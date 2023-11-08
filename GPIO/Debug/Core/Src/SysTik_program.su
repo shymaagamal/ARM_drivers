@@ -1,0 +1,8 @@
+../Core/Src/SysTik_program.c:10:6:SysTik_init	16	static
+../Core/Src/SysTik_program.c:32:6:SysTik_Asynchronous_Single	16	static
+../Core/Src/SysTik_program.c:40:6:SysTik_Synchronous	16	static
+../Core/Src/SysTik_program.c:49:6:SysTik_Asynchronous_Periodic	16	static
+../Core/Src/SysTik_program.c:57:6:SysTik_StopTimer	8	static
+../Core/Src/SysTik_program.c:64:5:SysTik_GetElapsedTime	8	static
+../Core/Src/SysTik_program.c:69:5:SysTik_GetRemainingTime	8	static
+../Core/Src/SysTik_program.c:79:6:SysTick_Handler	8	static

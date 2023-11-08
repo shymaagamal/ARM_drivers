@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;GPIO/Core/Src/STK_program.h&apos; to &apos;STK_program.c&apos;" description="Rename resource &apos;STK_program.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/STK_program.h" name="STK_program.c" stamp="1699327842396" updateReferences="true"/>
+</session>

@@ -1,0 +1,33 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2023
+ *      Author: Paula Magdy
+ */
+
+#include "StdTypes.h"
+#include "Utils.h"
+#include "RCC_Interface.h"
+#include "DIO_Interface.h"
+#include "SysTick_Interface.h"
+#include "SysTick_Private.h"
+#include "UART_Interface.h"
+#include "ESP_Interface.h"
+#include "NVIC_INTERFACE.h"
+
+
+
+volatile u8 str1[20]={0};
+volatile u8 i=0,flag=0;
+
+void f1(void)
+{
+	DIO_WritePin(PINA0,HIGH);
+	//Busy(1000000);
+	flag=1;
+	str1[i]=MUART_u8ReceiveCharAsync(UART2);
+}
+int main(void)
+{
+}
+

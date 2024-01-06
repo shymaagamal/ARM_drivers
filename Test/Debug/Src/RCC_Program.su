@@ -1,0 +1,3 @@
+../Src/RCC_Program.c:14:6:RCC_InitClk	16	static
+../Src/RCC_Program.c:127:6:RCC_Enable_Clk	16	static
+../Src/RCC_Program.c:150:6:RCC_Disable_Clk	16	static

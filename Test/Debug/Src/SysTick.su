@@ -1,0 +1,6 @@
+../Src/SysTick.c:12:6:STK_Init	4	static
+../Src/SysTick.c:17:6:STK_Start	16	static
+../Src/SysTick.c:24:6:Busy	16	static
+../Src/SysTick.c:35:5:STK_Read	4	static
+../Src/SysTick.c:39:6:STK_INT_EN	4	static
+../Src/SysTick.c:43:6:STK_INT_DIS	4	static

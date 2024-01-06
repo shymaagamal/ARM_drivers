@@ -1,0 +1,19 @@
+AT+CWMODE=1
+
+AT+CWJAP_CUR="Gamal","G01005525506"
+
+AT+CIPSTART="TCP","185.176.43.108",80
+AT+CIPSEND=55
+
+GET http://ntigreaters.scienceontheweb.net/status.txt
+
+POST http://ntigreaters.scienceontheweb.net/status.txt 1
+
+
+4403161_greaters
+
+123456789nti
+
+AT+CIPSEND=96
+
+POST /status.txt HTTP/1.1\r\nHost: ntigreaters.scienceontheweb.net\r\nContent-Length: 1\r\n\r\n1

@@ -1,0 +1,8 @@
+AT+CWMODE=1
+
+AT+CWJAP_CUR="realme 7 Pro","shaimaa271998"
+
+AT+CIPSTART="TCP","185.176.43.108",80
+AT+CIPSEND=55
+
+GET http://ntigreaters.scienceontheweb.net/status.txt

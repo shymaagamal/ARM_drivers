@@ -25,11 +25,11 @@ void main(void)
 
 	GPIO_voidSetPinValue(PORTA_ID, 0, LOGIC_LOW);
 
-	u32 x = 0;
-	u32 y = 1;
-
-	DMA_voidInit(1);
-    DMA_voidChannelStart(1, &y, &x, 4);
+//	u32 x = 0;
+//	u32 y = 1;
+//
+//	DMA_voidInit(1);
+//    DMA_voidChannelStart(1, &y, &x, 4);
 
 //	STK_voidInit();
 //	SysTik_init(AHB_NO_PRESCALE);
@@ -38,7 +38,8 @@ void main(void)
 	//STK_voidSetIntervalPeriodic(10000, LED);
 	while(1)
 	{
-		GPIO_voidSetPinValue(PORTA_ID, 0, x);
+		GPIO_voidSetPinValue(PORTA_ID, 0, 1);
+
 	}
 }
 

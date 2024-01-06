@@ -1,0 +1,27 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2023
+ *      Author: Paula Magdy
+ */
+
+#include "StdTypes.h"
+#include "Utils.h"
+#include "RCC_Interface.h"
+#include "DIO_Interface.h"
+#include "SysTick_Interface.h"
+#include "SysTick_Private.h"
+#include "UART_Interface.h"
+#include "ESP_Interface.h"
+#include "NVIC_INTERFACE.h"
+
+
+
+u8_ str1[20]={0};
+u8 i=0,flag=0;
+
+
+int main(void)
+{
+}
+

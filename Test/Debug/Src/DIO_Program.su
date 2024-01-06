@@ -1,0 +1,4 @@
+../Src/DIO_Program.c:21:13:DIO_InitPin	16	static
+../Src/DIO_Program.c:72:6:DIO_WritePin	16	static
+../Src/DIO_Program.c:106:21:DIO_ReadPin	24	static
+../Src/DIO_Program.c:127:6:DIO_Init	16	static

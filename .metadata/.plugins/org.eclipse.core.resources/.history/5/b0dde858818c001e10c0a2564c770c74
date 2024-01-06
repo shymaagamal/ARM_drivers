@@ -1,0 +1,55 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 1, 2023
+ *      Author: Paula Magdy
+ */
+
+#include "StdTypes.h"
+#include "Utils.h"
+#include "RCC_Interface.h"
+#include "DIO_Interface.h"
+#include "SysTick_Interface.h"
+#include "SysTick_Private.h"
+#include "UART_Interface.h"
+#include "ESP_Interface.h"
+#include "NVIC_INTERFACE.h"
+
+
+
+volatile u8 str1[20]={0};
+volatile u8 i=0,flag=0;
+
+void f1(void)
+{
+	DIO_WritePin(PINA0,HIGH);
+	//Busy(1000000);
+	flag=1;
+	str1[i]=MUART_u8ReceiveCharAsync(UART2);
+}
+void main(void)
+{
+	/*	Initialize clock system */
+	RCC_InitClk();
+	DIO_Init();
+	RCC_Enable_Clk(RCC_APB1,RCC_USART2);
+
+	MNVIC_voidEnablePeripheral(38);
+	MUART_voidInit(UART2);
+	MUART_voidEnable(UART2);
+	MUART_voidIntSetStatus(UART2,RXNE_INT_ENABLE);
+	MUART2_voidSetCallBack(f1);
+	u8 str2[5]="AT\r\n";
+	MUART_voidSendStringSynch( UART2 ,str2 );
+	while(1)
+	{
+	//	MUART_voidSendStringSynch( UART2 ,str2 );
+		if(str1[i]=='O')
+		{
+			DIO_WritePin(PINA0,LOW);
+		}
+		str1[i];
+		i++;
+	}
+}
+
